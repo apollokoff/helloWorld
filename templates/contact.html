@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block page_title %} Contact Page {% endblock %}
+
+{%  block page_head %} Contact Page {% endblock %}
+
+{% block page_content %}
+
+{% if form_submitted==True %}
+    <p> Thank you for submitting! </p>
+    <p> Your first name: {{ request.form.get('first_name')}}</p>
+    <p> Your last name: {{ request.form.get('last_name') }}</p>
+    <p> Your email: {{ request.form.get('email') }}</p>
+    <p style="color:{{ request.form.get('fav_color') }}"> This sentence is your favorite color. </p>
+
+
+{% else %}
+<div class="mx-5 my-5">
+    <form class="row g-3" action="{{ url_for_contact }}" method="post">
+        <div class="col-md-6">
+            <label for="first_name" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name">
+        </div>
+        <div class="col-md-6">
+            <label for="last_name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="last_name" name="last_name">
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="col-md-6">
+            <label for="fav_color" class="form-label">Favorite Color</label>
+            <input type="color" class="form-control form-control-color" id="fav_color" name="fav_color">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary"> Submit</button>
+        </div>
+
+    </form>
+
+</div>
+    {% endif %}
+
+{% endblock %}
