@@ -17,7 +17,7 @@
 
 {% else %}
 <div class="mx-5 my-5">
-    <form class="row g-3" action="{{ url_for_contact }}" method="post">
+    <form class="row g-3" action="{{ url_for("contact") }}" method="post">
         <div class="col-md-6">
             <label for="first_name" class="form-label">First Name</label>
             <input type="text" class="form-control" id="first_name" name="first_name">
